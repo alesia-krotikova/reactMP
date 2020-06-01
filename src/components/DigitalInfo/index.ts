@@ -1,0 +1,1 @@
+export { DigitalInfo } from './DigitalInfo';

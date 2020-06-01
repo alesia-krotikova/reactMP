@@ -1,0 +1,8 @@
+@import "../../styles";
+
+.container {
+  display: flex;
+  justify-self: flex-end;
+  justify-content: center;
+  background: $dark-grey;
+}

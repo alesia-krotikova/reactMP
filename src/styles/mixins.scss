@@ -1,0 +1,9 @@
+@mixin font($size) {
+  font-size: map-get($font-size, $size);
+  line-height: map_get($line-height, $size);
+}
+
+@mixin container {
+  width: 1080px;
+  margin: 0 auto;
+}

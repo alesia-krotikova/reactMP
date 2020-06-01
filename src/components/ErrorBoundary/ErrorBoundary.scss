@@ -1,0 +1,35 @@
+@import "../../styles";
+
+.container {
+  background: $light-grey;
+  flex-grow: 1;
+  display: flex;
+
+  .wrap {
+    @include container;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    color: $red;
+
+    h2 {
+      @include font("ml");
+    }
+
+    p {
+      @include font("xl");
+      font-weight: $font-bold;
+
+      span {
+        display: block;
+        @include font("xs");
+        color: $white;
+        font-weight: $font-medium;
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
