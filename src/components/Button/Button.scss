@@ -1,4 +1,4 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   padding: 10px 20px;
@@ -25,4 +25,8 @@
 .right {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.between {
+  border-radius: unset;
 }

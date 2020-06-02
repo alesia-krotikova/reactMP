@@ -1,13 +1,13 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   position: relative;
-  background: center / contain repeat url("../../images/background.png");
+  background: center / contain repeat url('../../images/background.png');
   overflow: hidden;
   z-index: 0;
 
   &:before {
-    content: "";
+    content: '';
     filter: blur(3px) brightness(0.4);
     position: absolute;
     left: -10px;

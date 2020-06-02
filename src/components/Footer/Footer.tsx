@@ -1,12 +1,16 @@
 import React from 'react';
-import { Logo } from "../Logo";
+import { Logo } from '../Logo';
 
 import css from './Footer.scss';
 
-type Footer = {
-  click: () => void;
+type FooterProps = {
+  onSwitchPage: () => void;
 };
 
-export function Footer ({ click }:Footer) {
-  return <section className={css.container}><Logo click={click} /></section>;
+export function Footer({ onSwitchPage }: FooterProps) {
+  return (
+    <section className={css.container}>
+      <Logo onClick={onSwitchPage} />
+    </section>
+  );
 }

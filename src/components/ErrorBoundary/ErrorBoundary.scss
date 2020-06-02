@@ -1,4 +1,4 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   background: $light-grey;
@@ -16,16 +16,16 @@
     color: $red;
 
     h2 {
-      @include font("ml");
+      @include font('ml');
     }
 
     p {
-      @include font("xl");
+      @include font('xl');
       font-weight: $font-bold;
 
       span {
         display: block;
-        @include font("xs");
+        @include font('xs');
         color: $white;
         font-weight: $font-medium;
         white-space: pre-wrap;

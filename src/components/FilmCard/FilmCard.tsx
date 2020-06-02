@@ -1,10 +1,10 @@
 import React from 'react';
-import { Film } from "../FilmDescription";
-import { FilmPreview } from "../FilmPreview";
+import { IFilm } from '../../entities';
+import { FilmPreview } from '../FilmPreview';
 
 import css from './FilmCard.scss';
 
-export function FilmCard ({ preview, name, genre, year }: Film) {
+export function FilmCard({ preview, name, genre, year }: IFilm) {
   return (
     <article className={css.container}>
       <FilmPreview img={preview} name={name} />

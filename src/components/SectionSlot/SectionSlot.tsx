@@ -2,16 +2,14 @@ import React from 'react';
 
 import css from './SectionSlot.scss';
 
-type SectionSlot = {
+type SectionSlotProps = {
   children: React.ReactNode;
-}
+};
 
-export function SectionSlot ({ children }: SectionSlot) {
+export function SectionSlot({ children }: SectionSlotProps) {
   return (
     <section className={css.container}>
-      <div className={css.wrap}>
-        {children}
-      </div>
+      <div className={css.wrap}>{children}</div>
     </section>
   );
 }

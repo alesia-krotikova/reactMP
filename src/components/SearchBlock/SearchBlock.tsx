@@ -1,18 +1,18 @@
 import React from 'react';
 
 import css from './SearchBlock.scss';
-import {Search} from "../Search";
+import { Search } from '../Search';
 
-type SearchBlock = {
-  searchClick: (val: string) => void;
+type SearchBlockProps = {
+  onSearch: (val: string) => void;
   children: React.ReactNode;
 };
 
-export function SearchBlock ({ searchClick, children }: SearchBlock) {
+export function SearchBlock({ onSearch, children }: SearchBlockProps) {
   return (
     <div className={css.container}>
       <h1>find your movie</h1>
-      <Search click={searchClick} />
+      <Search onSearch={onSearch} />
       {children}
     </div>
   );

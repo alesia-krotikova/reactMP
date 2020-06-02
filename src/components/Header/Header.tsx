@@ -1,20 +1,20 @@
 import React from 'react';
-import { Logo } from "../Logo";
+import { Logo } from '../Logo';
 
 import css from './Header.scss';
 
-type Header = {
+type HeaderProps = {
   isSearchIcon?: boolean;
-  click: () => void;
+  onSwitchPage: () => void;
 };
 
-export function Header ({ isSearchIcon, click }: Header) {
+export function Header({ isSearchIcon, onSwitchPage }: HeaderProps) {
   return (
     <header className={css.container}>
       <div className={css.wrap}>
-        <Logo click={click} />
-        {isSearchIcon && <a onClick={click} className={css.search} href="#"></a>}
+        <Logo onClick={onSwitchPage} />
+        {isSearchIcon && <a onClick={onSwitchPage} className={css.search} href="/"></a>}
       </div>
     </header>
-  )
+  );
 }

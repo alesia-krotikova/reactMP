@@ -1,11 +1,9 @@
-import React, {ErrorInfo} from 'react';
+import React from 'react';
 
 import css from './ErrorBoundary.scss';
 
 type ErrorBoundaryType = {
-  error: Error,
-  errorInfo: ErrorInfo,
-  hasError: boolean
+  hasError: boolean;
 };
 
 export class ErrorBoundary extends React.Component<{}, ErrorBoundaryType> {
@@ -13,22 +11,12 @@ export class ErrorBoundary extends React.Component<{}, ErrorBoundaryType> {
     super(props);
 
     this.state = {
-      error: null,
-      errorInfo: null,
-      hasError: false
+      hasError: false,
     };
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
-  }
-
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    this.setState({
-      hasError: true,
-      error: error,
-      errorInfo: errorInfo
-    })
   }
 
   render() {
@@ -37,12 +25,6 @@ export class ErrorBoundary extends React.Component<{}, ErrorBoundaryType> {
         <div className={css.container}>
           <div className={css.wrap}>
             <h2>Something went wrong</h2>
-            <p>
-              {this.state.error?.toString()}
-              <span>
-                {this.state.errorInfo?.componentStack}
-              </span>
-            </p>
           </div>
         </div>
       );

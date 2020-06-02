@@ -12,13 +12,16 @@
       min-height: 100vh;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       font-weight: $font-medium;
       margin: 0;
       padding: 0 0 40px;
     }
 
-    ul, li, figure {
+    ul,
+    li,
+    figure {
       margin: 0;
       padding: 0;
     }

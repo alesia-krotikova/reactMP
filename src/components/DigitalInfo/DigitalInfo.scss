@@ -1,13 +1,13 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   span:first-child {
     color: $red;
-    @include font("xl");
+    @include font('xl');
   }
 
   span:last-child {
-    @include font("xs");
+    @include font('xs');
     margin-right: 20px;
   }
 }

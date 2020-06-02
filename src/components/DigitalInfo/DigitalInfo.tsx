@@ -2,12 +2,12 @@ import React from 'react';
 
 import css from './DigitalInfo.scss';
 
-type DigitalInfo = {
+type DigitalInfoProps = {
   value: string | number;
   unit: string;
 };
 
-export function DigitalInfo ({ value, unit }: DigitalInfo) {
+export function DigitalInfo({ value, unit }: DigitalInfoProps) {
   return (
     <div className={css.container}>
       <span>{value}</span>

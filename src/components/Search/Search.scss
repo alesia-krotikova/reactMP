@@ -1,8 +1,8 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   display: flex;
-  @include font("m");
+  @include font('m');
 
   input {
     flex-grow: 1;
@@ -12,7 +12,7 @@
     border-radius: 5px;
     background: $black;
     opacity: 0.8;
-    @include font("ms");
+    @include font('ms');
     color: $white;
   }
 

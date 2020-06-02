@@ -1,16 +1,18 @@
 import React from 'react';
-import { Button } from "../Button/";
+import { Button } from '../Button/';
 
 import css from './Toggler.scss';
 
-interface Toggler {
+type TogglerProps = {
   name: string;
   active: string;
   values: Array<string>;
-  click: (name: string) => void;
-}
+  onToggle: (name: string) => void;
+};
 
-export function Toggler ({ click, name, values, active }: Toggler) {
+export function Toggler({ onToggle, name, values, active }: TogglerProps) {
+  const lastIndex = values.length - 1;
+
   return (
     <div className={css.container}>
       <span>{name}</span>
@@ -20,10 +22,11 @@ export function Toggler ({ click, name, values, active }: Toggler) {
           key={val}
           selected={active === val}
           isLeft={i === 0}
-          isRight={i === 1}
-          click={() => click(val) } />
-        )
-      )}
+          isRight={i === lastIndex}
+          isBetween={i > 0 && i < lastIndex}
+          onClick={() => onToggle(val)}
+        />
+      ))}
     </div>
   );
 }

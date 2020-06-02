@@ -3,23 +3,38 @@ import cx from 'classnames';
 
 import css from './Button.scss';
 
-type Button = {
+type ButtonProps = {
   name: string;
   isRed?: boolean;
   isLeft?: boolean;
   isRight?: boolean;
-  click: () => void;
+  isBetween?: boolean;
+  onClick: () => void;
   selected?: boolean;
 };
 
-export function Button ({ click, name, selected, isRed, isLeft, isRight }: Button) {
+export function Button({
+  onClick,
+  name,
+  selected,
+  isRed,
+  isLeft,
+  isRight,
+  isBetween,
+}: ButtonProps) {
   return (
     <button
       type="button"
-      onClick={click}
-      className={cx(css.container, {[css.red]: selected || isRed, [css.left]: isLeft, [css.right]: isRight})}
-      disabled={selected}>
+      onClick={onClick}
+      className={cx(css.container, {
+        [css.red]: selected || isRed,
+        [css.left]: isLeft,
+        [css.right]: isRight,
+        [css.between]: isBetween,
+      })}
+      disabled={selected}
+    >
       {name}
-  </button>
-  )
+    </button>
+  );
 }

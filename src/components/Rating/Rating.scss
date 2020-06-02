@@ -1,4 +1,4 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   width: 70px;
@@ -6,7 +6,7 @@
   border-radius: 50%;
   border: 1px solid $white;
   color: $green;
-  @include font("xl");
+  @include font('xl');
   margin: 20px;
   display: inline-flex;
   align-items: center;

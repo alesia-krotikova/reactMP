@@ -1,10 +1,10 @@
-@import "../../styles";
+@import '../../styles';
 
 .container {
   padding: 100px 20px;
 
   h1 {
-    @include font("ml");
+    @include font('ml');
     color: $white;
     text-transform: uppercase;
   }

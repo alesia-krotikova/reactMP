@@ -1,32 +1,22 @@
 import React from 'react';
-import { FilmPreview } from "../FilmPreview/";
-import { Rating } from "../Rating";
-import { DigitalInfo } from "../DigitalInfo";
+import { FilmPreview } from '../FilmPreview/';
+import { Rating } from '../Rating';
+import { DigitalInfo } from '../DigitalInfo';
+import { IFilm } from '../../entities';
 
 import css from './FilmDescription.scss';
 
-export interface Film {
-  id: number;
-  name: string;
-  preview?: string;
-  genre: string;
-  year: string | number;
-  duration?: string | number;
-  description?: string;
-  rating?: string | number;
-}
-
-type FilmDescription = {
-  item: Film;
+type FilmDescriptionProps = {
+  item: IFilm;
 };
 
-export function FilmDescription ({ item }: FilmDescription) {
+export function FilmDescription({ item }: FilmDescriptionProps) {
   return (
     <article className={css.container}>
       <FilmPreview img={item.preview} name={item.name} />
       <div className={css.description}>
         <h2>{item.name}</h2>
-        {item.rating && <Rating value={item.rating}/>}
+        {item.rating && <Rating value={item.rating} />}
         <div>
           <DigitalInfo value={item.year} unit="year" />
           {item.duration && <DigitalInfo value={item.duration} unit="min" />}
