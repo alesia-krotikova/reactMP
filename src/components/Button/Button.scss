@@ -1,0 +1,32 @@
+@import '../../styles';
+
+.container {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: $dark-grey;
+  opacity: 0.8;
+  color: $white;
+  font: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.red {
+  background: $red;
+  opacity: 1;
+}
+
+.left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.between {
+  border-radius: unset;
+}

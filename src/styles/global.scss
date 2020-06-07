@@ -1,0 +1,33 @@
+@import 'index';
+
+:global {
+  body {
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+
+    #root {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1,
+    h2 {
+      font-weight: $font-medium;
+      margin: 0;
+      padding: 0 0 40px;
+    }
+
+    ul,
+    li,
+    figure {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+  }
+}

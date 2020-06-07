@@ -1,0 +1,23 @@
+@import '../../styles';
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  .wrap {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+
+    a:nth-child(2) {
+      display: block;
+      width: 34px;
+      height: 34px;
+      margin: 20px 0;
+      background: center / contain url('../../images/search.png');
+    }
+  }
+}

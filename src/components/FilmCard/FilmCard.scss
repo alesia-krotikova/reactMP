@@ -1,0 +1,30 @@
+@import '../../styles';
+
+.container {
+  width: 325px;
+  color: $light-grey;
+  cursor: pointer;
+
+  .heading {
+    padding-top: 20px;
+    @include font('ms');
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h3 {
+      margin: 0;
+    }
+
+    span {
+      display: block;
+      padding: 2px 10px;
+      border: 1px solid;
+      border-radius: 3px;
+    }
+  }
+
+  span {
+    @include font('xs');
+  }
+}

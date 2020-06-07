@@ -1,0 +1,17 @@
+@import '../../styles';
+
+.container {
+  width: 325px;
+  height: 455px;
+  background: $dark-grey;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.default {
+  background: #424242 center / 75% no-repeat url('../../images/movie.png');
+}

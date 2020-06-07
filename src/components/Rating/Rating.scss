@@ -1,0 +1,14 @@
+@import '../../styles';
+
+.container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid $white;
+  color: $green;
+  @include font('xl');
+  margin: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
