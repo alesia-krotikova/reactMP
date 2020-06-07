@@ -109,7 +109,9 @@ export function MovieApp() {
 
   return (
     <>
-      <Header onSwitchPage={revertInitialState} isSearchIcon={!!activeCard} />
+      <Header onSwitchPage={revertInitialState}>
+        {!!activeCard && <a onClick={revertInitialState} href="/"></a>}
+      </Header>
       <ErrorBoundary>
         {activeCard ? (
           <MoviePage
@@ -122,7 +124,16 @@ export function MovieApp() {
           <SearchPage
             films={films}
             toggler={sortToggler}
+            onSearch={search}
             onSelectMovie={(id: number) => setActiveCard(films.find((item) => item.id === id))}
+            searchToggler={
+              <Toggler
+                name="search by"
+                values={['title', 'genre']}
+                active={searchType}
+                onToggle={(val) => setSearchType(val)}
+              />
+            }
           >
             <SectionSlot>
               <SearchBlock onSearch={search}>
