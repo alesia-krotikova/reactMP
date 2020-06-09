@@ -7,7 +7,8 @@
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development --open --hot",
     "format": "prettier  --write  \"src/**/*.{ts,tsx,scss}\"",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -27,16 +28,32 @@
     "singleQuote": true,
     "printWidth": 100
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/**/index.ts",
+      "!src/entities.ts",
+      "!src/index.js"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.10.1",
+    "@testing-library/react": "^10.2.1",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.2",
     "css-modules-typescript-loader": "^4.0.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^25.4.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.0",

@@ -13,8 +13,8 @@ export function SectionFilms({ items, onSelectFilm }: SectionFilmsProps) {
   return (
     <section className={css.container}>
       <div className={css.wrap}>
-        {items.length ? (
-          <ul>
+        {items?.length ? (
+          <ul data-testid="films">
             {items.map((item) => (
               <li onClick={() => onSelectFilm(item.id)} key={item.id}>
                 <FilmCard {...item} />
