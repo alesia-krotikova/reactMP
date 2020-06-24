@@ -18,7 +18,10 @@ export function MoviePage({ films, film, toggler, onSelectMovie }: MoviePageProp
       <SectionSlot>
         <FilmDescription item={film} />
       </SectionSlot>
-      <SectionStatus status={film.genre && `Films by ${film.genre} genre`} toggler={toggler} />
+      <SectionStatus
+        status={film.genres[0] && `Films by ${film.genres[0]} genre`}
+        toggler={toggler}
+      />
       <SectionFilms items={films} onSelectFilm={(id: number) => onSelectMovie(id)} />
     </>
   );

@@ -13,15 +13,15 @@ type FilmDescriptionProps = {
 export function FilmDescription({ item }: FilmDescriptionProps) {
   return (
     <article data-testid="selected film" className={css.container}>
-      <FilmPreview img={item.preview} name={item.name} />
+      <FilmPreview img={item.poster_path} name={item.title} />
       <div className={css.description}>
-        <h2>{item.name}</h2>
-        {item.rating && <Rating value={item.rating} />}
+        <h2>{item.title}</h2>
+        <Rating value={item.vote_average} />
         <div>
-          <DigitalInfo value={item.year} unit="year" />
-          {item.duration && <DigitalInfo value={item.duration} unit="min" />}
+          <DigitalInfo value={item.release_date} unit="year" />
+          <DigitalInfo value={item.runtime} unit="min" />
         </div>
-        {item.description && <p>{item.description}</p>}
+        {item.overview && <p>{item.overview}</p>}
       </div>
     </article>
   );
