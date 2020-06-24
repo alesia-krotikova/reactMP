@@ -12,7 +12,7 @@ type FilmDescriptionProps = {
 
 export function FilmDescription({ item }: FilmDescriptionProps) {
   return (
-    <article className={css.container}>
+    <article data-testid="selected film" className={css.container}>
       <FilmPreview img={item.preview} name={item.name} />
       <div className={css.description}>
         <h2>{item.name}</h2>

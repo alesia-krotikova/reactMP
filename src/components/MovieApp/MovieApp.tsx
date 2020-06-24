@@ -20,7 +20,7 @@ const items: Array<IFilm> = [
     duration: 153,
     description:
       "Pulp Fiction is a 1994 American crime film written and directed by Quentin Tarantino; it is based on a story by Tarantino and Roger Avary.[4] Starring John Travolta, Samuel L. Jackson, Bruce Willis, Tim Roth, Ving Rhames, and Uma Thurman, it tells several stories of criminal Los Angeles. The film's title refers to the pulp magazines and hardboiled crime novels popular during the mid-20th century, known for their graphic violence and punchy dialogue.",
-    rating: 5,
+    rating: 3,
   },
   {
     id: 234,
@@ -110,7 +110,7 @@ export function MovieApp() {
   return (
     <>
       <Header onSwitchPage={revertInitialState}>
-        {!!activeCard && <a onClick={revertInitialState} href="/"></a>}
+        {!!activeCard && <a data-testid="initial search" onClick={revertInitialState} href="/"></a>}
       </Header>
       <ErrorBoundary>
         {activeCard ? (
