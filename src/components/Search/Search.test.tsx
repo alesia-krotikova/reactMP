@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Search } from './Search';
-
-afterEach(cleanup);
 
 test('change value in search', () => {
   const { getByPlaceholderText } = render(<Search onSearch={jest.fn} />);
@@ -20,6 +18,6 @@ test('btn click fires callback with input value', () => {
   const button = getByText('search');
 
   fireEvent.change(input, { target: { value: 'q' } });
-  fireEvent.click(button, { bubble: true });
+  fireEvent.click(button);
   expect(mockFn).toHaveBeenCalledWith('q');
 });

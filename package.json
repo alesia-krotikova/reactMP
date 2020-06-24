@@ -33,6 +33,14 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts",
@@ -46,6 +54,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.10.1",
+    "@testing-library/jest-dom": "^5.9.0",
     "@testing-library/react": "^10.2.1",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",

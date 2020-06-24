@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { SectionStatus } from './SectionStatus';
-
-afterEach(cleanup);
 
 test('render status in section status component', () => {
   const mockToggler = <div></div>;

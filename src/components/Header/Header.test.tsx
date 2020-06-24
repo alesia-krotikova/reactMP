@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Header } from './Header';
-
-afterEach(cleanup);
 
 test('render header with children prop', () => {
   const { container, rerender } = render(<Header onSwitchPage={jest.fn} />);

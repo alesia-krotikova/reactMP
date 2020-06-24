@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { SectionFilms } from './SectionFilms';
-
-afterEach(cleanup);
 
 test('section films w/o items', () => {
   const { container } = render(<SectionFilms onSelectFilm={jest.fn} />);
