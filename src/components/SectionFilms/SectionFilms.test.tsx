@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { SectionFilms } from './SectionFilms';
 
 test('section films w/o items', () => {
-  const { container } = render(<SectionFilms onSelectFilm={jest.fn} />);
+  const { container } = render(<SectionFilms />);
 
   expect(container.querySelector('h2').innerHTML).toBe('No films found');
 });
@@ -23,8 +23,7 @@ test('section films with items', () => {
       vote_average: 5,
     },
   ];
-  const { container } = render(<SectionFilms onSelectFilm={jest.fn} items={mockItems} />);
+  const { container } = render(<SectionFilms items={mockItems} />);
 
   expect(container.querySelectorAll('li').length).toEqual(mockItems.length);
 });
-

@@ -1,72 +1,31 @@
 import React from 'react';
-import { Header } from '../Header';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Footer } from '../Footer';
 import { ErrorBoundary } from '../ErrorBoundary';
-import { Toggler } from '../Toggler';
-import { MoviePage } from '../MoviePage';
-import { SearchPage } from '../SearchPage';
-import { IFilm } from '../../entities';
+import MoviePage from '../../containers/MoviePage';
+import SearchPage from '../../containers/SearchPage';
+import { NotFoundPage } from '../NotFoundPage';
 
-export function MovieApp(props: any) {
-  const convertSortVal = (val: string, isStateToView?: boolean) => {
-    if (isStateToView) {
-      return val === 'release_date' ? 'release date' : 'rating';
-    }
-
-    return val === 'release date' ? 'release_date' : 'vote_average';
-  };
-
-  const sortToggler = (
-    <Toggler
-      name="sort by"
-      values={['release date', 'rating']}
-      active={convertSortVal(props.sortBy, true)}
-      onToggle={(val: string) => {
-        props.dispatch(props.sortToggler(convertSortVal(val)));
-        props.fetchFilms(convertSortVal(val), props.query, props.searchBy, props.film?.genres[0]);
-      }}
-    />
-  );
-
-  const selectMovie = (id: number) => {
-    props.dispatch(props.selectFilm(props.films.find((item: IFilm) => item.id === id)));
-    props.fetchFilms(props.sortBy, null, null, props.film.genres[0]);
-  };
-
+export function MovieApp() {
   return (
-    <>
-      <Header onSwitchPage={() => {}}>
-        {!!props.film && (
-          <a
-            data-testid="initial search"
-            onClick={() => {
-              props.dispatch(props.selectFilm(null));
-            }}
-            href="/"
-          ></a>
-        )}
-      </Header>
+    <Router>
       <ErrorBoundary>
-        {props.film ? (
-          <MoviePage
-            film={props.film}
-            films={props.films}
-            toggler={sortToggler}
-            onSelectMovie={(id: number) => {
-              selectMovie(id);
-            }}
-          />
-        ) : (
-          <SearchPage
-            films={props.films}
-            toggler={sortToggler}
-            onSelectMovie={(id: number) => {
-              selectMovie(id);
-            }}
-          />
-        )}
+        <Switch>
+          <Route exact path="/">
+            <SearchPage isDefault={true} />
+          </Route>
+          <Route path="/search">
+            <SearchPage />
+          </Route>
+          <Route path="/film/:id">
+            <MoviePage />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
       </ErrorBoundary>
-      <Footer onSwitchPage={() => {}} />
-    </>
+      <Footer />
+    </Router>
   );
 }

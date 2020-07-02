@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Logo } from './Logo';
 
 test('render logo', () => {
-  const { container } = render(<Logo onClick={jest.fn} />);
+  const { container } = render(<Logo />);
 
   expect(container).toMatchSnapshot();
 });

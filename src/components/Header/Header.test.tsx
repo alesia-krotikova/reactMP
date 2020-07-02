@@ -4,11 +4,11 @@ import '@testing-library/jest-dom/extend-expect';
 import { Header } from './Header';
 
 test('render header with children prop', () => {
-  const { container, rerender } = render(<Header onSwitchPage={jest.fn} />);
+  const { container, rerender } = render(<Header />);
 
   expect(container.querySelectorAll('a')).toHaveLength(1);
   rerender(
-    <Header onSwitchPage={jest.fn}>
+    <Header>
       <a href="#">Test</a>
     </Header>,
   );

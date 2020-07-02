@@ -2,6 +2,7 @@ import { IFilm } from '../entities';
 import { store } from '../store/configureStore';
 
 export const FETCH_FILMS_SUCCESS = 'FETCH_FILMS_SUCCESS';
+export const FETCH_FILM_SUCCESS = 'FETCH_FILM_SUCCESS';
 export const FETCH_FILMS_ERROR = 'FETCH_FILMS_ERROR';
 
 interface IFetchFilmsSuccess {
@@ -9,9 +10,21 @@ interface IFetchFilmsSuccess {
   films: Array<IFilm>;
 }
 
+interface IFetchFilmSuccess {
+  type: typeof FETCH_FILM_SUCCESS;
+  film: IFilm;
+}
+
 interface IFetchFilmsError {
   type: typeof FETCH_FILMS_ERROR;
   error: Error;
+}
+
+export function fetchFilmSuccess(film: IFilm) {
+  return {
+    type: FETCH_FILM_SUCCESS,
+    film: film,
+  };
 }
 
 export function fetchFilmsSuccess(films: Array<IFilm>) {
@@ -28,24 +41,36 @@ export function fetchFilmsError(error: Error) {
   };
 }
 
-export type SearchActionType = IFetchFilmsSuccess | IFetchFilmsError;
+export type SearchActionType = IFetchFilmSuccess | IFetchFilmsSuccess | IFetchFilmsError;
 
-export function fetchFilms(sort: string, q: string, searchBy: string, genre: string) {
-  const query = q ? `search=${q}&searchBy=${searchBy}` : `filter=${genre}`;
+export function fetchFilms(query: string, id: string) {
+  const fetches = [
+    fetch(`https://reactjs-cdp.herokuapp.com/movies${query}`),
+    id && fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`),
+  ];
 
   return (dispatch: typeof store.dispatch) => {
-    fetch(`https://reactjs-cdp.herokuapp.com/movies?${query}&sortBy=${sort}`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.error) {
-          throw res.error;
-        }
+    Promise.all(fetches).then((results) =>
+      results.forEach((res) =>
+        res
+          .json()
+          .then((res) => {
+            if (res.error) {
+              throw res.error;
+            }
 
-        dispatch(fetchFilmsSuccess(res.data));
-        return res.data;
-      })
-      .catch((error) => {
-        dispatch(fetchFilmsError(error));
-      });
+            if (res.data) {
+              dispatch(fetchFilmsSuccess(res.data));
+              return res.data;
+            } else {
+              dispatch(fetchFilmSuccess(res));
+              return res;
+            }
+          })
+          .catch((error) => {
+            dispatch(fetchFilmsError(error));
+          }),
+      ),
+    );
   };
 }

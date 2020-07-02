@@ -5,6 +5,7 @@
   @include font('m');
   color: $red;
   text-decoration: none;
+  display: block;
 
   span {
     font-weight: $font-bold;

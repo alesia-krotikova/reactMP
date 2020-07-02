@@ -2,14 +2,10 @@ import React from 'react';
 
 import css from './Logo.scss';
 
-type LogoProps = {
-  onClick: () => void;
-};
-
-export function Logo({ onClick }: LogoProps) {
+export function Logo() {
   return (
-    <a onClick={onClick} className={css.logo} href="#">
+    <span className={css.logo}>
       <span>netflix</span>roulette
-    </a>
+    </span>
   );
 }
