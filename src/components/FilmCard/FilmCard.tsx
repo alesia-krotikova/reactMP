@@ -4,15 +4,15 @@ import { FilmPreview } from '../FilmPreview';
 
 import css from './FilmCard.scss';
 
-export function FilmCard({ preview, name, genre, year }: IFilm) {
+export function FilmCard({ poster_path, title, genres, release_date }: IFilm) {
   return (
     <article className={css.container}>
-      <FilmPreview img={preview} name={name} />
+      <FilmPreview img={poster_path} name={title} />
       <div className={css.heading}>
-        <h3>{name}</h3>
-        <span>{year}</span>
+        <h3>{title}</h3>
+        <span>{release_date}</span>
       </div>
-      <span>{genre}</span>
+      <span>{genres}</span>
     </article>
   );
 }

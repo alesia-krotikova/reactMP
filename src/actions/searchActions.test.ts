@@ -1,16 +1,9 @@
-import React from 'react';
-import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { SectionFilms } from './SectionFilms';
+import { IFilm } from '../entities';
+import { FETCH_FILMS_SUCCESS, fetchFilmsSuccess } from './searchActions';
 
-test('section films w/o items', () => {
-  const { container } = render(<SectionFilms onSelectFilm={jest.fn} />);
-
-  expect(container.querySelector('h2').innerHTML).toBe('No films found');
-});
-
-test('section films with items', () => {
-  const mockItems = [
+test('search action', () => {
+  const films: Array<IFilm> = [
     {
       id: 1,
       title: 'Kill Bill: Vol 1',
@@ -23,8 +16,9 @@ test('section films with items', () => {
       vote_average: 5,
     },
   ];
-  const { container } = render(<SectionFilms onSelectFilm={jest.fn} items={mockItems} />);
 
-  expect(container.querySelectorAll('li').length).toEqual(mockItems.length);
+  expect(fetchFilmsSuccess(films)).toEqual({
+    type: FETCH_FILMS_SUCCESS,
+    films: films,
+  });
 });
-

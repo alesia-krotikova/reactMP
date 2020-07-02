@@ -1,19 +1,31 @@
 import React from 'react';
+import { Search } from '../Search';
+import { Toggler } from '../Toggler';
 
 import css from './SearchBlock.scss';
-import { Search } from '../Search';
 
-type SearchBlockProps = {
-  onSearch: (val: string) => void;
-  children: React.ReactNode;
-};
+export function SearchBlock(props: any) {
+  const search = (q: string) => {
+    props.dispatch(props.searchQuery(q));
+    props.fetchFilms(props.sortBy, q, props.searchBy);
+  };
 
-export function SearchBlock({ onSearch, children }: SearchBlockProps) {
   return (
     <div className={css.container}>
       <h1>find your movie</h1>
-      <Search onSearch={onSearch} />
-      {children}
+      <Search
+        onSearch={(q: string) => {
+          search(q);
+        }}
+      />
+      <Toggler
+        name="search by"
+        values={['title', 'genres']}
+        active={props.searchBy}
+        onToggle={(val: string) => {
+          props.dispatch(props.searchToggler(val));
+        }}
+      />
     </div>
   );
 }
