@@ -3,14 +3,10 @@ import { Logo } from '../Logo';
 
 import css from './Footer.scss';
 
-type FooterProps = {
-  onSwitchPage: () => void;
-};
-
-export function Footer({ onSwitchPage }: FooterProps) {
+export function Footer() {
   return (
     <section className={css.container}>
-      <Logo onClick={onSwitchPage} />
+      <Logo />
     </section>
   );
 }

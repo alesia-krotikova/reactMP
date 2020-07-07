@@ -5,9 +5,9 @@ import { SectionStatus } from './SectionStatus';
 
 test('render status in section status component', () => {
   const mockToggler = <div></div>;
-  const { rerender, container } = render(<SectionStatus toggler={mockToggler} />);
+  const { rerender, container } = render(<SectionStatus />);
 
   expect(container.querySelector('span').innerHTML).toEqual('');
-  rerender(<SectionStatus toggler={mockToggler} status={'test'} />);
+  rerender(<SectionStatus status={'test'} />);
   expect(container.querySelector('span').innerHTML).toEqual('test');
 });

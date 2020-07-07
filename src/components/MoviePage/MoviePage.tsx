@@ -1,28 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { SectionSlot } from '../SectionSlot';
 import { FilmDescription } from '../FilmDescription';
 import { SectionStatus } from '../SectionStatus';
 import { SectionFilms } from '../SectionFilms';
-import { IFilm } from '../../entities';
+import { Header } from '../Header';
 
-type MoviePageProps = {
-  film: IFilm;
-  films: Array<IFilm>;
-  toggler: React.ReactNode;
-  onSelectMovie: (id: number) => void;
-};
+export function MoviePage(props: any) {
+  const location = useLocation();
+  const { id } = useParams();
 
-export function MoviePage({ films, film, toggler, onSelectMovie }: MoviePageProps) {
+  useEffect(() => {
+    props.fetchFilms(location.search, id);
+  }, [location]);
+
   return (
     <>
-      <SectionSlot>
-        <FilmDescription item={film} />
-      </SectionSlot>
-      <SectionStatus
-        status={film.genres[0] && `Films by ${film.genres[0]} genre`}
-        toggler={toggler}
-      />
-      <SectionFilms items={films} onSelectFilm={(id: number) => onSelectMovie(id)} />
+      <Header>
+        <Link data-testid="initial search" to="/"></Link>
+      </Header>
+      <SectionSlot>{props.film && <FilmDescription item={props.film} />}</SectionSlot>
+      <SectionStatus status={props.film?.genres[0] && `Films by ${props.film.genres[0]} genre`} />
+      <SectionFilms items={props.films} />
     </>
   );
 }

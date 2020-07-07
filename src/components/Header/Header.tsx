@@ -1,18 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
 
 import css from './Header.scss';
 
 type HeaderProps = {
-  onSwitchPage: () => void;
   children?: React.ReactNode;
 };
 
-export function Header({ onSwitchPage, children }: HeaderProps) {
+export function Header({ children }: HeaderProps) {
   return (
     <header className={css.container}>
       <div className={css.wrap}>
-        <Logo onClick={onSwitchPage} />
+        <Link to="/">
+          <Logo />
+        </Link>
         {children}
       </div>
     </header>

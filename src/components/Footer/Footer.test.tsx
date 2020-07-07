@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Footer } from './Footer';
 
 test('render footer', () => {
-  const { container } = render(<Footer onSwitchPage={jest.fn} />);
+  const { container } = render(<Footer />);
 
   expect(container).toMatchSnapshot();
 });

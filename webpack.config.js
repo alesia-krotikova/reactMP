@@ -68,4 +68,8 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin()],
   },
+
+  devServer: {
+    historyApiFallback: true
+  },
 };
