@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './ErrorBoundary.scss';
+import css from './ErrorBoundary.module.scss';
 
 type ErrorBoundaryType = {
   hasError: boolean;

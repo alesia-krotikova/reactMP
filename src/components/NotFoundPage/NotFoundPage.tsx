@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './NotFoundPage.scss';
+import css from './NotFoundPage.module.scss';
 import { Header } from '../Header';
 
 export function NotFoundPage() {

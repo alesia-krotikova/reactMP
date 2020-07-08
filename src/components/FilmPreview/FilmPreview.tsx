@@ -1,7 +1,7 @@
 import React from 'react';
 
 import cx from 'classnames';
-import css from './FilmPreview.scss';
+import css from './FilmPreview.module.scss';
 
 type FilmPreviewProps = {
   img?: string;

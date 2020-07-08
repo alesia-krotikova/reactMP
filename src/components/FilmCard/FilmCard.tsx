@@ -2,7 +2,7 @@ import React from 'react';
 import { IFilm } from '../../entities';
 import { FilmPreview } from '../FilmPreview';
 
-import css from './FilmCard.scss';
+import css from './FilmCard.module.scss';
 
 export function FilmCard({ poster_path, title, genres, release_date }: IFilm) {
   return (
