@@ -12,7 +12,7 @@ export function MovieApp() {
       <ErrorBoundary>
         <Switch>
           <Route exact path="/">
-            <SearchPage isDefault={true} />
+            <SearchPage isDefault />
           </Route>
           <Route path="/search">
             <SearchPage />

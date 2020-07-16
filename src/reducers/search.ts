@@ -6,13 +6,13 @@ import {
 } from '../actions/searchActions';
 import { IFilm } from '../entities';
 
-type stateType = {
+type StateType = {
   films: Array<IFilm>;
   film: IFilm;
   error: Error;
 };
 
-const initialState: stateType = {
+const initialState: StateType = {
   films: [],
   film: null,
   error: null,
@@ -40,6 +40,6 @@ export function searchReducer(state = initialState, action: SearchActionType) {
   }
 }
 
-export const getFilms = (state: stateType) => state.films;
-export const getFilm = (state: stateType) => state.film;
-export const getFilmsError = (state: stateType) => state.error;
+export const getFilms = (state: StateType) => state.films;
+export const getFilm = (state: StateType) => state.film;
+export const getFilmsError = (state: StateType) => state.error;

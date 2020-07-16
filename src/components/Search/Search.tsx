@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '../Button/';
+import { Button } from '../Button';
 
 import css from './Search.scss';
 
@@ -18,7 +18,7 @@ export function Search({ onSearch }: SearchProps) {
         onChange={(e) => setSearchValue(e.target.value)}
         placeholder="search"
       />
-      <Button name={'search'} isRed={true} onClick={() => onSearch(searchValue)} />
+      <Button name="search" isRed onClick={() => onSearch(searchValue)} />
     </div>
   );
 }

@@ -19,6 +19,6 @@ test('search action', () => {
 
   expect(fetchFilmsSuccess(films)).toEqual({
     type: FETCH_FILMS_SUCCESS,
-    films: films,
+    films,
   });
 });

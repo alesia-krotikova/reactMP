@@ -9,7 +9,7 @@ test('render header with children prop', () => {
   expect(container.querySelectorAll('a')).toHaveLength(1);
   rerender(
     <Header>
-      <a href="#">Test</a>
+      <a href="/">Test</a>
     </Header>,
   );
   expect(container.querySelectorAll('a')).toHaveLength(2);
