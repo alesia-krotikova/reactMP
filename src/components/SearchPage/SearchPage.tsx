@@ -10,9 +10,9 @@ import qs from 'qs';
 export function SearchPage(props: any) {
   const router = useRouter();
 
-  useEffect(() => {
-    router.pathname !== '/' && props.fetchFilms(qs.stringify(router.query));
-  }, []);
+  // useEffect(() => {
+  //   router.pathname !== '/' && props.fetchFilms(qs.stringify(router.query));
+  // }, []);
 
   return (
     <>

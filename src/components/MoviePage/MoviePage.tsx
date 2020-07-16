@@ -11,9 +11,9 @@ import qs from 'qs';
 export function MoviePage(props: any) {
   const router = useRouter();
 
-  useEffect(() => {
-    props.fetchFilms(qs.stringify(router.query), router.query.id);
-  }, [router]);
+  // useEffect(() => {
+  //   props.fetchFilms(qs.stringify(router.query), router.query.id);
+  // }, [router]);
 
   return (
     <>
