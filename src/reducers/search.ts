@@ -40,6 +40,6 @@ export function searchReducer(state = initialState, action: SearchActionType) {
   }
 }
 
-export const getFilms = (state: stateType) => state.films;
-export const getFilm = (state: stateType) => state.film;
-export const getFilmsError = (state: stateType) => state.error;
+export const getFilms = (state: StateType) => state.films;
+export const getFilm = (state: StateType) => state.film;
+export const getFilmsError = (state: StateType) => state.error;
