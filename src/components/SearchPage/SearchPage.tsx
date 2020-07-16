@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router';
 import { SectionStatus } from '../SectionStatus';
 import { SectionFilms } from '../SectionFilms';
 import { SearchBlock } from '../SearchBlock';
 import { SectionSlot } from '../SectionSlot';
 import { Header } from '../Header';
-import { useLocation } from 'react-router';
 
-export function SearchPage(props: any) {
+export function SearchPage({ films, isDefault, fetchFilms }: any) {
   const location = useLocation();
 
   useEffect(() => {
-    !props.isDefault && props.fetchFilms(null, location.search);
+    if (!isDefault) {
+      fetchFilms(null, location.search);
+    }
   }, [location]);
 
   return (
@@ -19,8 +21,8 @@ export function SearchPage(props: any) {
       <SectionSlot>
         <SearchBlock />
       </SectionSlot>
-      <SectionStatus status={props.films?.length > 0 && `${props.films.length} movies found`} />
-      <SectionFilms items={props.films} />
+      <SectionStatus status={films?.length > 0 && `${films.length} movies found`} />
+      <SectionFilms items={films} />
     </>
   );
 }

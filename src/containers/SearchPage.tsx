@@ -1,7 +1,7 @@
-import { getFilms, getFilmsError } from '../reducers/search';
 import { bindActionCreators } from 'redux';
-import { fetchFilms } from '../actions/searchActions';
 import { connect } from 'react-redux';
+import { getFilms, getFilmsError } from '../reducers/search';
+import { fetchFilms } from '../actions/searchActions';
 import { SearchPage } from '../components/SearchPage';
 
 const mapStateToProps = (state: any, ownProps: any) => ({
@@ -10,12 +10,11 @@ const mapStateToProps = (state: any, ownProps: any) => ({
   ...ownProps,
 });
 
-const mapDispatchToProps = (dispatch: any) =>
-  bindActionCreators(
-    {
-      fetchFilms,
-    },
-    dispatch,
-  );
+const mapDispatchToProps = (dispatch: any) => bindActionCreators(
+  {
+    fetchFilms,
+  },
+  dispatch,
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

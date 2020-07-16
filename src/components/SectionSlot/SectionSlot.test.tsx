@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { SectionSlot } from './SectionSlot';
 
 test('render digital info', () => {
-  const { container } = render(<SectionSlot children={'test'} />);
+  const { container } = render(<SectionSlot>test</SectionSlot>);
 
   expect(container).toMatchSnapshot();
 });

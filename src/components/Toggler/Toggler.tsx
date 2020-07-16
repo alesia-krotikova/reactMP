@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../Button/';
+import { Button } from '../Button';
 
 import css from './Toggler.scss';
 
@@ -10,7 +10,9 @@ type TogglerProps = {
   onToggle: (name: string) => void;
 };
 
-export function Toggler({ onToggle, name, values, active }: TogglerProps) {
+export function Toggler({
+  onToggle, name, values, active,
+}: TogglerProps) {
   const lastIndex = values.length - 1;
 
   return (

@@ -6,13 +6,13 @@ import {
 } from '../actions/searchActions';
 import { IFilm } from '../entities';
 
-type stateType = {
+type StateType = {
   films: Array<IFilm>;
   film: IFilm;
   error: Error;
 };
 
-const initialState: stateType = {
+const initialState: StateType = {
   films: [],
   film: null,
   error: null,

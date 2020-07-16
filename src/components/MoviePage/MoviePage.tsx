@@ -6,22 +6,22 @@ import { SectionStatus } from '../SectionStatus';
 import { SectionFilms } from '../SectionFilms';
 import { Header } from '../Header';
 
-export function MoviePage(props: any) {
+export function MoviePage({ film, fetchFilms, films }: any) {
   const location = useLocation();
   const { id } = useParams();
 
   useEffect(() => {
-    props.fetchFilms(location.search, id);
+    fetchFilms(location.search, id);
   }, [location]);
 
   return (
     <>
       <Header>
-        <Link data-testid="initial search" to="/"></Link>
+        <Link data-testid="initial search" to="/" />
       </Header>
-      <SectionSlot>{props.film && <FilmDescription item={props.film} />}</SectionSlot>
-      <SectionStatus status={props.film?.genres[0] && `Films by ${props.film.genres[0]} genre`} />
-      <SectionFilms items={props.films} />
+      <SectionSlot>{film && <FilmDescription item={film} />}</SectionSlot>
+      <SectionStatus status={film?.genres[0] && `Films by ${film.genres[0]} genre`} />
+      <SectionFilms items={films} />
     </>
   );
 }

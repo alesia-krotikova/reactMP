@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Search } from '../Search';
-import { Toggler } from '../Toggler';
 import { useHistory, useLocation } from 'react-router';
 import qs from 'qs';
+import { Search } from '../Search';
+import { Toggler } from '../Toggler';
 
 import css from './SearchBlock.scss';
 
@@ -14,7 +14,9 @@ export function SearchBlock() {
   useEffect(() => {
     const { searchBy } = location.search && qs.parse(location.search);
 
-    searchBy && setSearchType(searchBy as string);
+    if (searchBy) {
+      setSearchType(searchBy as string);
+    }
   }, [location]);
 
   return (

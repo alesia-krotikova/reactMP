@@ -1,8 +1,8 @@
 import React from 'react';
-import { FilmCard } from '../FilmCard';
-import { IFilm } from '../../entities';
 import qs from 'qs';
 import { useHistory } from 'react-router';
+import { FilmCard } from '../FilmCard';
+import { IFilm } from '../../entities';
 
 import css from './SectionFilms.scss';
 
@@ -20,9 +20,7 @@ export function SectionFilms({ items }: SectionFilmsProps) {
           <ul data-testid="films">
             {items.map((item) => (
               <li
-                onClick={() =>
-                  history.push(`/film/${item.id}?${qs.stringify({ filter: item.genres[0] })}`)
-                }
+                onClick={() => history.push(`/film/${item.id}?${qs.stringify({ filter: item.genres[0] })}`)}
               >
                 <FilmCard {...item} />
               </li>

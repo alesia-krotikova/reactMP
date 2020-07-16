@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Toggler } from '../Toggler';
-import { useHistory, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import qs from 'qs';
+import { Toggler } from '../Toggler';
 
 import css from './SectionStatus.scss';
 
@@ -10,23 +10,24 @@ type SectionStatusProps = {
 };
 
 export function SectionStatus({ status }: SectionStatusProps) {
-  const enum sortParams {
+  const enum SortParams {
     'release_date',
     'vote_average',
   }
-  const enum sortValues {
+  const enum SortValues {
     'release date',
     'rating',
   }
-  const history = useHistory();
   const location = useLocation();
   const [sort, setSort] = useState('release date');
 
   useEffect(() => {
     const { sortBy } = location.search && qs.parse(location.search);
 
-    // @ts-ignore
-    sortBy && setSort(sortValues[sortParams[sortBy]]);
+    if (sortBy) {
+      // @ts-ignore
+      setSort(SortValues[SortParams[sortBy]]);
+    }
   }, [location]);
 
   return (
@@ -38,7 +39,7 @@ export function SectionStatus({ status }: SectionStatusProps) {
           values={['release date', 'rating']}
           active={sort}
           onToggle={(val: string) => {
-            setSort(val); //should implement change url param
+            setSort(val); // should implement change url param
           }}
         />
       </div>

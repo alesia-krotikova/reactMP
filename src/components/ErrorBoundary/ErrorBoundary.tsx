@@ -20,7 +20,10 @@ export class ErrorBoundary extends React.Component<{}, ErrorBoundaryType> {
   }
 
   render() {
-    if (this.state.hasError) {
+    const { hasError } = this.state;
+    const { children } = this.props;
+
+    if (hasError) {
       return (
         <div className={css.container}>
           <div className={css.wrap}>
@@ -30,6 +33,6 @@ export class ErrorBoundary extends React.Component<{}, ErrorBoundaryType> {
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }

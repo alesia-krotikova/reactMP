@@ -4,7 +4,9 @@ import { FilmPreview } from '../FilmPreview';
 
 import css from './FilmCard.scss';
 
-export function FilmCard({ poster_path, title, genres, release_date }: IFilm) {
+export function FilmCard({
+  poster_path, title, genres, release_date,
+}: IFilm) {
   return (
     <article className={css.container}>
       <FilmPreview img={poster_path} name={title} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilmPreview } from '../FilmPreview/';
+import { FilmPreview } from '../FilmPreview';
 import { Rating } from '../Rating';
 import { DigitalInfo } from '../DigitalInfo';
 import { IFilm } from '../../entities';
