@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Toggler } from '../Toggler';
-import { useHistory, useLocation } from 'react-router';
+import { useRouter } from 'next/router';
 import qs from 'qs';
 
-import css from './SectionStatus.scss';
+import css from './SectionStatus.module.scss';
 
 type SectionStatusProps = {
   status?: string;
 };
 
 export function SectionStatus({ status }: SectionStatusProps) {
-  const enum sortParams {
+  enum sortParams {
     'release_date',
     'vote_average',
   }
-  const enum sortValues {
+  enum sortValues {
     'release date',
     'rating',
   }
-  const history = useHistory();
-  const location = useLocation();
+
+  const router = useRouter();
   const [sort, setSort] = useState('release date');
 
   useEffect(() => {
-    const { sortBy } = location.search && qs.parse(location.search);
+    const sortBy = router.query.sortBy;
 
     // @ts-ignore
     sortBy && setSort(sortValues[sortParams[sortBy]]);
-  }, [location]);
+  }, [router]);
 
   return (
     <div className={css.container}>
@@ -38,7 +38,12 @@ export function SectionStatus({ status }: SectionStatusProps) {
           values={['release date', 'rating']}
           active={sort}
           onToggle={(val: string) => {
-            setSort(val); //should implement change url param
+            const query = router.query;
+            const path = router.query.id ? `/film/${router.query.id}` : router.pathname;
+
+            // @ts-ignore
+            query.sortBy = sortParams[sortValues[val]];
+            router.push(`${path}?${qs.stringify(query)}`);
           }}
         />
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './Rating.scss';
+import css from './Rating.module.scss';
 
 type RatingProps = {
   value: string | number;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../Button/';
 
-import css from './Toggler.scss';
+import css from './Toggler.module.scss';
 
 type TogglerProps = {
   name: string;

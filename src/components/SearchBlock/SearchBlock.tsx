@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Search } from '../Search';
 import { Toggler } from '../Toggler';
-import { useHistory, useLocation } from 'react-router';
+import { useRouter } from 'next/router';
 import qs from 'qs';
 
-import css from './SearchBlock.scss';
+import css from './SearchBlock.module.scss';
 
 export function SearchBlock() {
-  const history = useHistory();
-  const location = useLocation();
+  const router = useRouter();
   const [searchType, setSearchType] = useState('title');
 
   useEffect(() => {
-    const { searchBy } = location.search && qs.parse(location.search);
+    const searchBy = router.query.searchBy;
 
     searchBy && setSearchType(searchBy as string);
-  }, [location]);
+  }, [router]);
 
   return (
     <div className={css.container}>
       <h1>find your movie</h1>
       <Search
         onSearch={(q: string) => {
-          history.push(`/search?${qs.stringify({ search: q, searchBy: searchType })}`);
+          router.push(`/search?${qs.stringify({ search: q, searchBy: searchType })}`);
         }}
       />
       <Toggler

@@ -4,14 +4,15 @@ import { SectionFilms } from '../SectionFilms';
 import { SearchBlock } from '../SearchBlock';
 import { SectionSlot } from '../SectionSlot';
 import { Header } from '../Header';
-import { useLocation } from 'react-router';
+import { useRouter } from 'next/router';
+import qs from 'qs';
 
 export function SearchPage(props: any) {
-  const location = useLocation();
+  const router = useRouter();
 
-  useEffect(() => {
-    !props.isDefault && props.fetchFilms(null, location.search);
-  }, [location]);
+  // useEffect(() => {
+  //   router.pathname !== '/' && props.fetchFilms(qs.stringify(router.query));
+  // }, []);
 
   return (
     <>

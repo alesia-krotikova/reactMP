@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../Button/';
 
-import css from './Search.scss';
+import css from './Search.module.scss';
 
 type SearchProps = {
   onSearch: (val: string) => void;

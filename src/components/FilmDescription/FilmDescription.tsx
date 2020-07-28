@@ -4,7 +4,7 @@ import { Rating } from '../Rating';
 import { DigitalInfo } from '../DigitalInfo';
 import { IFilm } from '../../entities';
 
-import css from './FilmDescription.scss';
+import css from './FilmDescription.module.scss';
 
 type FilmDescriptionProps = {
   item: IFilm;

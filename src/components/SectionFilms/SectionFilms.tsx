@@ -2,16 +2,16 @@ import React from 'react';
 import { FilmCard } from '../FilmCard';
 import { IFilm } from '../../entities';
 import qs from 'qs';
-import { useHistory } from 'react-router';
+import { useRouter } from 'next/router';
 
-import css from './SectionFilms.scss';
+import css from './SectionFilms.module.scss';
 
 type SectionFilmsProps = {
   items?: Array<IFilm>;
 };
 
 export function SectionFilms({ items }: SectionFilmsProps) {
-  const history = useHistory();
+  const router = useRouter();
 
   return (
     <section className={css.container}>
@@ -21,7 +21,7 @@ export function SectionFilms({ items }: SectionFilmsProps) {
             {items.map((item) => (
               <li
                 onClick={() =>
-                  history.push(`/film/${item.id}?${qs.stringify({ filter: item.genres[0] })}`)
+                  router.push(`/film/${item.id}?${qs.stringify({ filter: item.genres[0] })}`)
                 }
               >
                 <FilmCard {...item} />

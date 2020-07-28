@@ -43,13 +43,12 @@ export function fetchFilmsError(error: Error) {
 
 export type SearchActionType = IFetchFilmSuccess | IFetchFilmsSuccess | IFetchFilmsError;
 
-export function fetchFilms(query: string, id: string) {
-  const fetches = [
-    fetch(`https://reactjs-cdp.herokuapp.com/movies${query}`),
-    id && fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`),
-  ];
+export function fetchFilms(query: string, id?: string) {
+  const fetches = [fetch(`https://reactjs-cdp.herokuapp.com/movies?${query}`)];
 
-  return (dispatch: typeof store.dispatch) => {
+  id && fetches.push(fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`));
+
+  return (dispatch: any): Promise<any> =>
     Promise.all(fetches).then((results) =>
       results.forEach((res) =>
         res
@@ -72,5 +71,4 @@ export function fetchFilms(query: string, id: string) {
           }),
       ),
     );
-  };
 }

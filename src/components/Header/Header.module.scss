@@ -16,12 +16,13 @@
       text-decoration: none;
     }
 
-    a:nth-child(2) {
+    i {
       display: block;
       width: 34px;
       height: 34px;
       margin: 20px 0;
       background: center / contain url('../../images/search.png');
+      cursor: pointer;
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './DigitalInfo.scss';
+import css from './DigitalInfo.module.scss';
 
 type DigitalInfoProps = {
   value: string | number;

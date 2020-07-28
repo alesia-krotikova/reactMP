@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './SectionSlot.scss';
+import css from './SectionSlot.module.scss';
 
 type SectionSlotProps = {
   children: React.ReactNode;

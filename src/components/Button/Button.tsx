@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import css from './Button.scss';
+import css from './Button.module.scss';
 
 type ButtonProps = {
   name: string;
